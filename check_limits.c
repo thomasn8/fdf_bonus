@@ -6,7 +6,7 @@
 /*   By: tnanchen <thomasnanchen@hotmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 21:50:27 by tnanchen          #+#    #+#             */
-/*   Updated: 2021/11/30 19:48:56 by tnanchen         ###   ########.fr       */
+/*   Updated: 2021/11/30 20:30:08 by tnanchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,11 +73,6 @@ int	check_limits_y_scale(t_point **coordinates, t_vars vars, t_data img)
 	img_heigth = y_max + y_min;
 	ft_putstr_fd(GREEN, 1);
 	if (y_min > 0 || img_heigth >= win_h)
-	{
-		ft_putstr_fd(RED, 2);
-		ft_putstr_fd("\nMax z-scale\n", 2);
-		ft_putstr_fd(GREEN, 2);
 		return (0);
-	}
 	return (1);
 }
