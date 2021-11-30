@@ -6,7 +6,7 @@
 /*   By: tnanchen <thomasnanchen@hotmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 09:31:28 by tnanchen          #+#    #+#             */
-/*   Updated: 2021/11/30 20:26:37 by tnanchen         ###   ########.fr       */
+/*   Updated: 2021/11/30 20:50:00 by tnanchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ static void	quit_prog(t_vars *vars)
 {
 	free_coordinates(vars->coordinates_origin);
 	free_coordinates(vars->coordinates_cpy);
-	printf("Origin coordinates are freed\n");
-	printf("Quit program\n");
+	printf("Origin and Copy coordinates are freed.\n");
+	printf("Program left.\n");
 	mlx_clear_window(vars->mlx, vars->win);
 	mlx_destroy_window(vars->mlx, vars->win);
 	exit(0);
