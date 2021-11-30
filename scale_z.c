@@ -6,7 +6,7 @@
 /*   By: tnanchen <thomasnanchen@hotmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 23:45:51 by tnanchen          #+#    #+#             */
-/*   Updated: 2021/11/30 20:25:22 by tnanchen         ###   ########.fr       */
+/*   Updated: 2021/11/30 20:42:58 by tnanchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,24 +63,35 @@ static t_point	**new_coordinates(t_vars *vars, float z_scale)
 	return (coordinates_cpy);
 }
 
+static float	get_scale_value(int points_spacing)
+{
+	if (points_spacing <= 10)
+		return (0.1);
+	if (points_spacing <= 30)
+		return (0.25);
+	return (0.5);
+}
+
 void	z_scale(int key, t_vars *vars)
 {
 	static float	z_scale = 0;
+	float			scale_value;
 	t_point			**coordinates_cpy;
 
+	scale_value = get_scale_value(get_points_spacing_2(0, 2));
 	if (key == ARROW_UP || key == SCROLL_UP)
-		z_scale += 0.5;
+		z_scale += scale_value;
 	else if (key == ARROW_DOWN || key == SCROLL_DOWN)
-		z_scale -= 0.5;
+		z_scale -= scale_value;
 	draw_horizontal_lines_black(vars->coordinates_cpy, *vars->image);
 	draw_vertical_lines_black(vars->coordinates_cpy, *vars->image);
 	coordinates_cpy = new_coordinates(vars, z_scale);
 	if (!check_limits_y_scale(vars->coordinates_cpy, *vars, *vars->image))
 	{
 		if (key == ARROW_UP || key == SCROLL_UP)
-			z_scale -= 0.5;
+			z_scale -= scale_value;
 		else if (key == ARROW_DOWN || key == SCROLL_DOWN)
-			z_scale += 0.5;
+			z_scale += scale_value;
 		coordinates_cpy = new_coordinates(vars, z_scale);
 	}
 	draw_horizontal_lines(vars->coordinates_cpy, *vars->image);
