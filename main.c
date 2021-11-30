@@ -6,7 +6,7 @@
 /*   By: tnanchen <thomasnanchen@hotmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 21:21:47 by tnanchen          #+#    #+#             */
-/*   Updated: 2021/11/30 20:09:39 by tnanchen         ###   ########.fr       */
+/*   Updated: 2021/11/30 20:20:17 by tnanchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int	main(int ac, char **av)
 	mlx_put_image_to_window(vars.mlx, vars.win, img.img,
 		img.margin_width / 2, img.margin_heigth / 2);
 	mlx_key_hook(vars.win, key_function, &vars);
+	mlx_mouse_hook(vars.win, mouse_function, &vars);
 	mlx_loop(vars.mlx);
 	return (0);
 }

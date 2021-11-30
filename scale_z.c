@@ -6,7 +6,7 @@
 /*   By: tnanchen <thomasnanchen@hotmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 23:45:51 by tnanchen          #+#    #+#             */
-/*   Updated: 2021/11/30 20:02:18 by tnanchen         ###   ########.fr       */
+/*   Updated: 2021/11/30 20:25:22 by tnanchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,18 +68,18 @@ void	z_scale(int key, t_vars *vars)
 	static float	z_scale = 0;
 	t_point			**coordinates_cpy;
 
-	if (key == ARROW_UP)
+	if (key == ARROW_UP || key == SCROLL_UP)
 		z_scale += 0.5;
-	else
+	else if (key == ARROW_DOWN || key == SCROLL_DOWN)
 		z_scale -= 0.5;
 	draw_horizontal_lines_black(vars->coordinates_cpy, *vars->image);
 	draw_vertical_lines_black(vars->coordinates_cpy, *vars->image);
 	coordinates_cpy = new_coordinates(vars, z_scale);
 	if (!check_limits_y_scale(vars->coordinates_cpy, *vars, *vars->image))
 	{
-		if (key == ARROW_UP)
+		if (key == ARROW_UP || key == SCROLL_UP)
 			z_scale -= 0.5;
-		else
+		else if (key == ARROW_DOWN || key == SCROLL_DOWN)
 			z_scale += 0.5;
 		coordinates_cpy = new_coordinates(vars, z_scale);
 	}

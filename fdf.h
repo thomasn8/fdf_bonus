@@ -6,7 +6,7 @@
 /*   By: tnanchen <thomasnanchen@hotmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 21:19:06 by tnanchen          #+#    #+#             */
-/*   Updated: 2021/11/30 19:59:50 by tnanchen         ###   ########.fr       */
+/*   Updated: 2021/11/30 20:27:07 by tnanchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@
 # define ESC 53
 # define ARROW_UP 126
 # define ARROW_DOWN 125
+# define SCROLL_UP 4
+# define SCROLL_DOWN 5
 
 // window
 typedef struct s_vars {
@@ -161,6 +163,7 @@ int		get_line_colors(
 // my_events.c
 void	free_coordinates(t_point **coordinates);
 int		key_function(int key, t_vars *vars);
+int		mouse_function(int button, int x, int y, t_vars *vars);
 
 // scale_z.c
 void	z_scale(int key, t_vars *vars);

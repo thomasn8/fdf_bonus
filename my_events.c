@@ -6,7 +6,7 @@
 /*   By: tnanchen <thomasnanchen@hotmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 09:31:28 by tnanchen          #+#    #+#             */
-/*   Updated: 2021/11/30 19:48:39 by tnanchen         ###   ########.fr       */
+/*   Updated: 2021/11/30 20:26:37 by tnanchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,14 @@ int	key_function(int key, t_vars *vars)
 		quit_prog(vars);
 	if (key == ARROW_DOWN || key == ARROW_UP)
 		z_scale(key, vars);
+	return (0);
+}
+
+int	mouse_function(int button, int x, int y, t_vars *vars)
+{
+	(void) x;
+	(void) y;
+	if (button == SCROLL_UP || button == SCROLL_DOWN)
+		z_scale(button, vars);
 	return (0);
 }
